@@ -10,12 +10,12 @@ import java.sql.Connection;
  *
  *========================*/
 
-/**=========================================================================
-Name        TreeData
+/**=========================================================================<p>
+Name        TreeData<p>
 
-Purpose     Holds the necessary information contained within each TreeItem
+Purpose     Holds the necessary information contained within each TreeItem<p>
 
-History     07 Apr 18   AFB     Created
+History     07 Apr 18   AFB     Created<p>
 ==========================================================================**/
 public class TreeData
 {

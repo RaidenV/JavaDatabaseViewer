@@ -14,12 +14,12 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-/**=========================================================================
-Name        JavaSqlTableViewer
+/**=========================================================================<p>
+Name        JavaSqlTableViewer<p>
 
-Purpose     Simple application for connecting and viewing a database.
+Purpose     Simple application for connecting and viewing a database.<p>
 
-History     07 Apr 18   AFB     Created
+History     07 Apr 18   AFB     Created<p>
 ==========================================================================**/
 public class JavaSqlTableViewer extends Stage
 {
@@ -36,10 +36,10 @@ public class JavaSqlTableViewer extends Stage
         mTreeItems = td;
     }
     
-    /**=========================================================================
-    Name        start
+    /**=========================================================================<p>
+    Name        start<p>
 
-    Purpose     Loads the scene onto the passed stage.
+    Purpose     Loads the scene onto the passed stage.<p>
     
     @param primaryStage Stage - The stage onto which the scene will be loaded.
     
@@ -48,7 +48,7 @@ public class JavaSqlTableViewer extends Stage
     
     @see        Stage
    
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     public void start( Stage primaryStage ) throws ClassNotFoundException, SQLException
     {
@@ -90,10 +90,10 @@ public class JavaSqlTableViewer extends Stage
         primaryStage.show();
     }
 
-    /**=========================================================================
-    Name        setDbName
+    /**=========================================================================<p>
+    Name        setDbName<p>
 
-    Purpose     Sets the name of the database to which this window is connected.
+    Purpose     Sets the name of the database to which this window is connected.<p>
     
     @param dbName String - The name of the database to which this window is
                            connected.
@@ -101,41 +101,41 @@ public class JavaSqlTableViewer extends Stage
     @see        BorderPane
     @see        TreeView
    
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     public void setDbName( String dbName )
     {
         mDbName = dbName;
     }
 
-    /**=========================================================================
-    Name        setConnection
+    /**=========================================================================<p>
+    Name        setConnection<p>
 
     Purpose     Sets the connection that belongs to this window (the connection
-                that the window has ownership over).
+                that the window has ownership over).<p>
     
     @param conn Connection - Connection attached to this window
     
     @see        Connection
    
-    History     13 Apr 18   AFB     Created
+    History     13 Apr 18   AFB     Created<p>
     =========================================================================**/
     public void setConnection( Connection conn )
     {
         mConn = conn;
     }
 
-    /**=========================================================================
-    Name        createMain
+    /**=========================================================================<p>
+    Name        createMain<p>
 
-    Purpose     Constructs the main window.
+    Purpose     Constructs the main window.<p>
     
     @param root VBox - the type of layout we'll be using
     
     @see        VBox
     @see        TreeView
    
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     void createMain( VBox root )
     { 
@@ -184,18 +184,18 @@ public class JavaSqlTableViewer extends Stage
         root.getChildren().add(hbox);
     }
 
-    /**=========================================================================
-    Name        touchTrees
+    /**=========================================================================<p>
+    Name        touchTrees<p>
 
     Purpose     Recursively traverses a TreeItem, setting the parent of each
-                node.
+                node.<p>
     
     @param ti   TreeItem<TreeData>
     
     @see        TreeItem
     @see        TreeData
    
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     private void touchTrees( TreeItem<TreeData> ti )
     {
@@ -212,17 +212,17 @@ public class JavaSqlTableViewer extends Stage
         VBox.setVgrow(n, Priority.ALWAYS);
     }
 
-    /**=========================================================================
-    Name        createCloseMenu
+    /**=========================================================================<p>
+    Name        createCloseMenu<p>
 
-    Purpose     Creates a menu within a VBox
+    Purpose     Creates a menu within a VBox<p>
     
     @param root VBox - the type of layout we'll be using
     
     @see        VBox
     @see        MenuBar
    
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     void createCloseMenu( VBox root )
     {
@@ -240,17 +240,17 @@ public class JavaSqlTableViewer extends Stage
         root.getChildren().add(menu);
     }
 
-    /**=========================================================================
-    Name        createTab
+    /**=========================================================================<p>
+    Name        createTab<p>
 
-    Purpose     Creates a tab and adds a TableView to that tab.
+    Purpose     Creates a tab and adds a TableView to that tab.<p>
     
     @param table TableView - Tableview containing visible data.
     
     @see        TableView
     @see        TabPane
    
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     void createTab( TableView table )
     {
@@ -259,10 +259,10 @@ public class JavaSqlTableViewer extends Stage
         mTpane.getTabs().add(tab);
     }
 
-    /**=========================================================================
-    Name        loadTable
+    /**=========================================================================<p>
+    Name        loadTable<p>
 
-    Purpose     Queries the database and loads a table based on that query.
+    Purpose     Queries the database and loads a table based on that query.<p>
     
     @param      query String - The query that we'll use to access data and
                                 therefrom load a table.
@@ -270,7 +270,7 @@ public class JavaSqlTableViewer extends Stage
     @see        TableView
     @see        TreeData
 
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     void loadTable( String query )
     {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package JavaDatabaseViewer;
 
 import java.sql.Connection;
@@ -20,12 +15,12 @@ import javafx.scene.control.TreeItem;
  *
  *========================*/
 
-/**=========================================================================
-Name        DbLoad
+/**=========================================================================<p>
+Name        DbLoad<p>
 
-Purpose     Loads a database.
+Purpose     Loads a database.<p>
 
-History     07 Apr 18   AFB     Created
+History     07 Apr 18   AFB     Created<p>
 ==========================================================================**/
 public class DbLoad
 {
@@ -41,15 +36,15 @@ public class DbLoad
         mDbUrl = "";
     }
 
-    /**=========================================================================
-    Name        dbConnect
+    /**=========================================================================<p>
+    Name        dbConnect<p>
 
-    Purpose     Connects to a database and loads the items if available.
+    Purpose     Connects to a database and loads the items if available.<p>
     
     @param      url     String - URL of the database
     @param      uname   String - Username of the database
     @param      passwd  String - Password for the database
-    @param      items   TreeItem<TreeData> - hierarchy to be loaded
+    @param      items   TreeItem - hierarchy to be loaded
     
     @throws java.sql.SQLException
     
@@ -58,7 +53,7 @@ public class DbLoad
     
     @return     Connection - A successful database connection or null if failed
 
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     public Connection dbConnect( String url, 
                                  String uname, 
@@ -98,10 +93,10 @@ public class DbLoad
         return connection;
     }
     
-    /**=========================================================================
-    Name        dbLoad
+    /**=========================================================================<p>
+    Name        dbLoad<p>
 
-    Purpose     Loads a database into a given TreeItem hierarchy
+    Purpose     Loads a database into a given TreeItem hierarchy<p>
     
     @param      conn    Connection - Valid connection to a database
     @param      items   TreeItem<TreeData> - hierarchy to be loaded
@@ -110,7 +105,7 @@ public class DbLoad
     @see        TreeItem
     @see        TreeData
     
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     private void dbLoad( Connection conn, TreeItem<TreeData> items )
     {
@@ -169,44 +164,44 @@ public class DbLoad
         }
     }
 
-    /**=========================================================================
-    Name        getDbUrl
+    /**=========================================================================<p>
+    Name        getDbUrl<p>
 
-    Purpose     Returns the database URL
+    Purpose     Returns the database URL<p>
     
     @return     String  - Database URL
     
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     public String getDbUrl()
     {
         return mDbUrl;
     }
     
-    /**=========================================================================
-    Name        getConnection
+    /**=========================================================================<p>
+    Name        getConnection<p>
 
-    Purpose     Returns the database connection
+    Purpose     Returns the database connection<p>
     
     @return     Connection  - Database connection
     
     @see        Connection
     
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     public Connection getConnection()
     {
         return mConnection;
     }
     
-    /**=========================================================================
-    Name        getConnected
+    /**=========================================================================<p>
+    Name        getConnected<p>
 
-    Purpose     Returns whether the connection was successful.
+    Purpose     Returns whether the connection was successful.<p>
     
     @return     boolean  - True = successful, false = unsuccessful
     
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     public boolean getConnected()
     {

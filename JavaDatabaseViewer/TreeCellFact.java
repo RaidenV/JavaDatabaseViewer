@@ -15,22 +15,22 @@ import javafx.scene.input.MouseEvent;
  *
  *========================*/
 
-/**=========================================================================
-Name        TreeCellFact
+/**=========================================================================<p>
+Name        TreeCellFact<p>
 
 Purpose     A TreeCell factory for updating the central tree and generating 
-            table views for the available leafs.
+            table views for the available leafs.<p>
 
-History     07 Apr 18   AFB     Created
+History     07 Apr 18   AFB     Created<p>
 ==========================================================================**/
 public class TreeCellFact extends TreeCell<TreeData>
 {
-    /**=========================================================================
-    Name        updateItem
+    /**=========================================================================<p>
+    Name        updateItem<p>
 
-    Purpose     Updates and provides item with necessary event monitoring.s
+    Purpose     Updates and provides item with necessary event monitoring.<p>
 
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     @Override
     public void updateItem( TreeData item, boolean empty )
@@ -73,14 +73,14 @@ public class TreeCellFact extends TreeCell<TreeData>
         }
     }
 
-    /**=========================================================================
-    Name        createContextMenu
+    /**=========================================================================<p>
+    Name        createContextMenu<p>
 
-    Purpose     Creates a context menu above the given item.
+    Purpose     Creates a context menu above the given item.<p>
 
     @param      item TreeData - Item to which a context menu will reference.
 
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     public void createContextMenu( TreeData item )
     {
@@ -101,29 +101,29 @@ public class TreeCellFact extends TreeCell<TreeData>
     }
 
 
-    /**=========================================================================
-    Name        isViewable
+    /**=========================================================================<p>
+    Name        isViewable<p>
 
     Purpose     Answers whether or not the selected TreeData is a viewable
-                item (Table, Column) or not viewable (Root, Schema).
+                item (Table, Column) or not viewable (Root, Schema).<p>
     
     @return     boolean - True, can view, false, cannot view.
 
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     boolean isViewable()
     {
         return getLevel() >= 2;
     }
     
-    /**=========================================================================
-    Name        genQuery
+    /**=========================================================================<p>
+    Name        genQuery<p>
 
-    Purpose     Generates a SQL query based on the item calling it.
+    Purpose     Generates a SQL query based on the item calling it.<p>
     
     @return     String - string containing the query.
 
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     String genQuery( )
     {
@@ -141,14 +141,14 @@ public class TreeCellFact extends TreeCell<TreeData>
 
     }
 
-    /**=========================================================================
-    Name        getLevel
+    /**=========================================================================<p>
+    Name        getLevel<p>
 
-    Purpose     Returns the level of the item within the TreeItem hierarchy.
+    Purpose     Returns the level of the item within the TreeItem hierarchy.<p>
     
     @return     int - level of item (0 = Root)
 
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     int getLevel()
     {

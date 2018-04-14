@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package JavaDatabaseViewer;
 
 import static JavaDatabaseViewer.DbLogin.DiagResult.PASSWORD;
@@ -30,16 +25,16 @@ import javafx.stage.Stage;
 public class StartFrame extends Application
 {
 
-    /**=========================================================================
-    Name        start
+    /**=========================================================================<p>
+    Name        start<p>
 
-    Purpose     Loads the scene onto the passed stage.
+    Purpose     Loads the scene onto the passed stage.<p>
     
     @param primaryStage Stage - The stage onto which the scene will be loaded.
     
     @see        Stage
    
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     @Override
     public void start( Stage primaryStage )
@@ -56,17 +51,17 @@ public class StartFrame extends Application
         primaryStage.show();
     }
 
-    /**=========================================================================
-    Name        createMenu
+    /**=========================================================================<p>
+    Name        createMenu<p>
 
-    Purpose     Creates a menu within a BorderPane
+    Purpose     Creates a menu within a BorderPane<p>
     
     @param root BorderPane - the type of layout we'll be using
     
     @see        BorderPane
     @see        MenuBar
    
-    History     07 Apr 18   AFB     Created
+    History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
     void createMenu( BorderPane root )
     {
