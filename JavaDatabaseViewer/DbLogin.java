@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.StageStyle;
 
 /*========================
  *
@@ -20,7 +21,7 @@ Name        DbLogin<p>
 
 Purpose     Creates a Database Login dialog.<p>
 
-History     07 Apr 18   AFB     Created<p>
+<p>History     07 Apr 18   AFB     Created<p>
 ==========================================================================**/
 public class DbLogin
 {
@@ -50,23 +51,22 @@ public class DbLogin
     Purpose     Generates a dialog for obtaining the URL, Username, and Password 
                 for a Java SQL database.
                 <p>
-                This method always returns a string, the string will contain 
-                null items if the user canceled the dialog instead of attempting 
-                to login.<p>
     
     @see        Dialog
     
     @return     String [] - Contains login credentials for connecting to a
-                            database [0]=URL, [1]=USERNAME, [2]=PASSWORD
+                            database [0]=URL, [1]=USERNAME, [2]=PASSWORD or null
+                            if cancel was used.
 
-    History     07 Apr 18   AFB     Created<p>
+    <p>History     07 Apr 18   AFB     Created<p>
     =========================================================================**/
-    public static String[] dbLoginDialog()
+    public static String[] dbLoginDialog() throws RuntimeException
     {
         // Create the custom dialog.
         Dialog<String[]> dialog = new Dialog<>();
         dialog.setTitle("Login");
         dialog.setHeaderText("Database Access");
+        dialog.initStyle(StageStyle.UNDECORATED);
 
         // Set the button types.
         ButtonType loginButtonType = new ButtonType("Login", ButtonBar.ButtonData.OK_DONE);
@@ -110,18 +110,17 @@ public class DbLogin
                 };
                 return str;
             }
-            else
-            {
-                String[] str =
-                {
-                    null, null, null
-                };
-                return str;
-            }
+           
+            return null;
         });
 
         // Wait for it...
         Optional<String[]> result = dialog.showAndWait();
+        
+        if ( !result.isPresent() )
+        {
+            return null;
+        }
 
         return result.get();
     }

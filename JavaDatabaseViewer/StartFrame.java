@@ -130,9 +130,12 @@ public class StartFrame extends Application
         {
             // Open a dialog and get credentials from user;
             String[] cred = DbLogin.dbLoginDialog();
-            // Load the database based on the user credentials;
-
-            //mConnection = 
+            // Check if null was returned;
+            if ( cred == null )
+            {
+                return null;
+            }
+            // Load the database based on the user credentials; 
             conn = db.dbConnect(cred[URL.getValue()],
                          cred[USERNAME.getValue()],
                          cred[PASSWORD.getValue()],
@@ -145,7 +148,6 @@ public class StartFrame extends Application
             alert.setTitle("Database Not Found");
             alert.setContentText("The database login information\n"
                                  + "entered was incorrect.");
-            System.out.println("Made it here");
             alert.showAndWait();
             return null;
         }
