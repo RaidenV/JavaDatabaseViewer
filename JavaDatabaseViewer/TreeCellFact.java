@@ -116,6 +116,15 @@ public class TreeCellFact extends TreeCell<TreeData>
         return getLevel() >= 2;
     }
     
+    /**=========================================================================
+    Name        genQuery
+
+    Purpose     Generates a SQL query based on the item calling it.
+    
+    @return     String - string containing the query.
+
+    History     07 Apr 18   AFB     Created
+    =========================================================================**/
     String genQuery( )
     {
         

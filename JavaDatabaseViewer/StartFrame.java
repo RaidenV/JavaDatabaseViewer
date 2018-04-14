@@ -30,10 +30,17 @@ import javafx.stage.Stage;
 public class StartFrame extends Application
 {
 
-    public StartFrame()
-    {
-    }
+    /**=========================================================================
+    Name        start
 
+    Purpose     Loads the scene onto the passed stage.
+    
+    @param primaryStage Stage - The stage onto which the scene will be loaded.
+    
+    @see        Stage
+   
+    History     07 Apr 18   AFB     Created
+    =========================================================================**/
     @Override
     public void start( Stage primaryStage )
     {

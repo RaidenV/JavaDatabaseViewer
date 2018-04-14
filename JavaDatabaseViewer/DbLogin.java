@@ -48,16 +48,16 @@ public class DbLogin
     Name        dbLoginDialog
 
     Purpose     Generates a dialog for obtaining the URL, Username, and Password 
-                for a java sql database.
+                for a Java SQL database.
                 <p>
                 This method always returns a string, the string will contain 
                 null items if the user canceled the dialog instead of attempting 
                 to login.
     
-    @see        TreeItem
-    @see        TreeData
+    @see        Dialog
     
-    @return     Connection - A successful database connection or null if failed
+    @return     String [] - Contains login credentials for connecting to a
+                            database [0]=URL, [1]=USERNAME, [2]=PASSWORD
 
     History     07 Apr 18   AFB     Created
     =========================================================================**/
