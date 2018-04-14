@@ -48,9 +48,10 @@ public class StartFrame extends Application
 
         createMenu(root);
 
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene( root, 300, 30 );
 
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Java SQL Browser");
+        primaryStage.setResizable( false );
         primaryStage.setScene(scene);
         primaryStage.show();
     }

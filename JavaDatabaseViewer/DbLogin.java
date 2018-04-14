@@ -77,7 +77,7 @@ public class DbLogin
         TextField url = new TextField();
         TextField username = new TextField();
         PasswordField pass = new PasswordField();
-        url.setText("jdbc:derby:/home/raidenv/Documents/School_CLU/CSC-400_Graphical_User_Interface/GroupProject/src/groupproject/BirtSample");
+        url.setText("");
         username.setText("root");
 
         // Create the grid and add the items to the appropriate locations

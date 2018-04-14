@@ -7,11 +7,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 /**=========================================================================
@@ -43,19 +43,29 @@ public class JavaSqlTableViewer extends Stage
     
     @param primaryStage Stage - The stage onto which the scene will be loaded.
     
+    @throws java.lang.ClassNotFoundException
+    @throws java.sql.SQLException
+    
     @see        Stage
    
     History     07 Apr 18   AFB     Created
     =========================================================================**/
     public void start( Stage primaryStage ) throws ClassNotFoundException, SQLException
     {
-        VBox root = new VBox();
-        root.setSpacing(10);
-        Scene scene = new Scene(root, 800, 600);
-        this.setMinWidth( 800 );
-        this.setMinHeight( 600 );
-        createCloseMenu(root);
-        createMain(root);
+        final Group root = new Group();
+        VBox vbox = new VBox();
+        setGrow(vbox);
+        
+        vbox.setSpacing(10);
+        Scene scene = new Scene(root, 1024, 800);
+        vbox.prefWidthProperty().bind( scene.widthProperty() );
+        vbox.prefHeightProperty().bind( scene.heightProperty() );
+        root.getChildren().add( vbox );
+        
+        this.setMinWidth( 1024 );
+        this.setMinHeight( 800 );
+        createCloseMenu(vbox);
+        createMain(vbox);
 
         this.setTitle(mDbName);
 
@@ -128,8 +138,10 @@ public class JavaSqlTableViewer extends Stage
     History     07 Apr 18   AFB     Created
     =========================================================================**/
     void createMain( VBox root )
-    {
+    { 
         HBox hbox = new HBox();
+        setGrow(hbox);
+        hbox.setPadding( new Insets( 10, 10, 10, 10));
         hbox.setSpacing( 10 );
 
         TreeView<TreeData> tree = new TreeView<>();
@@ -142,13 +154,17 @@ public class JavaSqlTableViewer extends Stage
         });
 
         VBox vbox = new VBox();
+        vbox.setSpacing( 10 );
+        setGrow(vbox);
 
         tree.setCellFactory(( TreeView<TreeData> param ) -> new TreeCellFact());
         tree.setPadding(new Insets(10, 10, 10, 10));
 
         mTarea = new TextArea();
+        HBox.setHgrow( mTarea, Priority.ALWAYS);
 
         HBox btnbox = new HBox();
+        HBox.setHgrow( btnbox, Priority.ALWAYS );
 
         Button btn = new Button("Run Query");
         btn.setAlignment(Pos.CENTER_RIGHT);
@@ -156,11 +172,13 @@ public class JavaSqlTableViewer extends Stage
         {
             this.loadTable(mTarea.getText());
         });
-        Separator hsep = new Separator();
-        hsep.setPrefWidth( 300 );
+        Region hsep = new Region();
+        HBox.setHgrow( hsep, Priority.ALWAYS);
+        hsep.setPrefWidth( Region.USE_PREF_SIZE );
         btnbox.getChildren().addAll( hsep, btn );
 
         mTpane = new TabPane();
+        setGrow(mTpane);
         vbox.getChildren().addAll(mTarea, btnbox, mTpane);
         hbox.getChildren().addAll(tree, vbox);
         root.getChildren().add(hbox);
@@ -187,6 +205,12 @@ public class JavaSqlTableViewer extends Stage
             touchTrees(elem);
         });
     }
+    
+    private void setGrow( Node n )
+    {
+        HBox.setHgrow(n, Priority.ALWAYS);
+        VBox.setVgrow(n, Priority.ALWAYS);
+    }
 
     /**=========================================================================
     Name        createCloseMenu
@@ -209,7 +233,7 @@ public class JavaSqlTableViewer extends Stage
         MenuItem exit = new MenuItem("Exit");
         exit.setOnAction(( ActionEvent t ) ->
         {
-            System.exit(0);
+            this.close();
         });
 
         file.getItems().addAll(exit);
@@ -250,6 +274,7 @@ public class JavaSqlTableViewer extends Stage
     =========================================================================**/
     void loadTable( String query )
     {
+        System.out.println( "Query: " + query );
         TableView table = new TableView();
         try
         {
@@ -279,6 +304,7 @@ public class JavaSqlTableViewer extends Stage
         catch ( SQLException ex )
         {
             System.out.println("Unable to complete query");
+            return;
         }
 
         createTab(table);

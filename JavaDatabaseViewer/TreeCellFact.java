@@ -131,7 +131,7 @@ public class TreeCellFact extends TreeCell<TreeData>
         String itemColName = "*";
         if ( this.getLevel() >= 3 )
         {
-            this.getItem().getColumn();
+           itemColName = this.getItem().getColumn();
         }
         String SQL = "SELECT " + itemColName + " FROM " + 
                      this.getItem().getSchema() + "." + 
